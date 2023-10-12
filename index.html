@@ -92,7 +92,8 @@
               <h4>고민 상담실</h4>
               <p>이메일로 고민 글 작성 후 답변 받기</p>
               <div class="main-button">
-                <a href="#contact">고민 글 작성</a>
+                <a href="mailto:umm0714@naver.com" title="상담 내용">상담 내용</a>
+                <!-- <a href="#contact">고민 글 작성</a> -->
               </div>
             </div>
           </div>
@@ -226,6 +227,40 @@
       </div>
     </div>
   </div>
+
+  <!-- ------------------------------------------------ -->
+
+  <form id="emailForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br><br>
+
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message" rows="6"></textarea><br><br>
+
+    <input type="submit" value="Send Email">
+  </form>
+
+  <script>
+    document.getElementById("emailForm").addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent the default form submission behavior
+
+      // Get user input
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var message = document.getElementById("message").value;
+
+      // Create a "mailto" link
+      var mailtoLink = "mailto:support@example.com" +
+        "?subject=Inquiry from " + name +
+        "&body=" + message;
+
+      // Open the user's email client with the mailto link
+      window.location.href = mailtoLink;
+    });
+  </script>
 
   <!-- <div class="section about-us">
     <div class="container">
